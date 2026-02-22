@@ -17,5 +17,6 @@ urlpatterns = [
     # path for add a review view
     # ... other paths
     path('about/', TemplateView.as_view(template_name="About.html")),
+    path('contact/', TemplateView.as_view(template_name="Contact.html")),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
