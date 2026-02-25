@@ -1,6 +1,7 @@
 import React from 'react';
 import "../assets/style.css";
 import "../assets/bootstrap.min.css";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     const logout = async (e) => {
@@ -26,8 +27,9 @@ const Header = () => {
 //The default home page items are the login details panel
 let home_page_items = (
   <div className="input_panel">
-    <a className="nav_item" href="/login">Login</a>
-    <a className="nav_item" href="/register">Register</a>
+    {/* Swapping <a> for <Link> to keep it strictly Single Page Application style */}
+    <Link className="nav_item" to="/login">Login</Link>
+    <Link className="nav_item" to="/register">Register</Link>
   </div>
 );
 
@@ -54,13 +56,15 @@ if (curr_user !== null && curr_user !== "") {
               <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" style={{fontSize: "larger"}} aria-current="page" href="/">Home</a>
+                    {/* Change href="/" to Link to="/" */}
+                    <Link class="nav-link active" style={{fontSize: "larger"}} to="/">Home</Link>
                   </li>
                   <li class="nav-item">
-                  <a class="nav-link" style={{fontSize: "larger"}} href="/static/about.html">About Us</a>
+                    {/* Point to the route defined in App.js, not a static file */}
+                    <Link class="nav-link" style={{fontSize: "larger"}} to="/about">About Us</Link>
                   </li>
                   <li class="nav-item">
-                  <a class="nav-link" style={{fontSize: "larger"}} href="/static/contact.html">Contact Us</a>
+                    <Link class="nav-link" style={{fontSize: "larger"}} to="/contact">Contact Us</Link>
                   </li>
                 </ul>
                 <span class="navbar-text">
