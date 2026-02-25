@@ -51,3 +51,4 @@ jobs:
         # This tells the JS linter to skip the check if it finds errors
         find ./server/database -path "*/node_modules/*" -prune -o -name "*.js" -exec jshint {} + || true
         echo "Linted all the js files successfully"
+        
