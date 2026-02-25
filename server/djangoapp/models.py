@@ -21,7 +21,7 @@ class CarModel(models.Model):
     name = models.CharField(max_length=100)
     
     # Dealer ID referring to the Node.js/Mongo database
-    dealer_id = models.IntegerField()
+    dealer_id = models.IntegerField(null=True, blank=True)
     
     # Car Type Choices
     CAR_TYPES = [

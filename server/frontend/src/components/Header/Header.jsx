@@ -24,17 +24,24 @@ const Header = () => {
   };
     
 //The default home page items are the login details panel
-let home_page_items =  <div></div>
+let home_page_items = (
+  <div className="input_panel">
+    <a className="nav_item" href="/login">Login</a>
+    <a className="nav_item" href="/register">Register</a>
+  </div>
+);
 
 //Gets the username in the current session
 let curr_user = sessionStorage.getItem('username')
 
 //If the user is logged in, show the username and logout option on home page
-if ( curr_user !== null &&  curr_user !== "") {
-    home_page_items = <div className="input_panel">
-      <text className='username'>{sessionStorage.getItem("username")}</text>
-    <a className="nav_item" href="/djangoapp/logout" onClick={logout}>Logout</a>
-  </div>
+if (curr_user !== null && curr_user !== "") {
+    home_page_items = (
+        <div className="input_panel">
+            <span className='username'>{curr_user}</span>
+            <a className="nav_item" href="/djangoapp/logout" onClick={logout}>Logout</a>
+        </div>
+    );
 }
     return (
         <div>
@@ -50,10 +57,10 @@ if ( curr_user !== null &&  curr_user !== "") {
                     <a class="nav-link active" style={{fontSize: "larger"}} aria-current="page" href="/">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" style={{fontSize: "larger"}} href="/about">About Us</a>
+                  <a class="nav-link" style={{fontSize: "larger"}} href="/static/about.html">About Us</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" style={{fontSize: "larger"}} href="/contact">Contact Us</a>
+                  <a class="nav-link" style={{fontSize: "larger"}} href="/static/contact.html">Contact Us</a>
                   </li>
                 </ul>
                 <span class="navbar-text">
