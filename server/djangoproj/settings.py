@@ -50,6 +50,7 @@ REST_FRAMEWORK = {
 
 INSTALLED_APPS = [
     'djangoapp.apps.DjangoappConfig',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -59,6 +60,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -72,7 +74,7 @@ ROOT_URLCONF = 'djangoproj.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'djangoapp/static')], # Where index.html lives
+        'DIRS': [os.path.join(BASE_DIR, 'djangoapp/static')], 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -150,3 +152,15 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'djangoapp/static/static'),
 ]
 
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    "https://*.cognitiveclass.ai",
+    "https://*.proxy.cognitiveclass.ai",
+    "http://localhost:3000",
+]
+
+# Ensure sessions work across the proxy
+SESSION_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+CSRF_COOKIE_SECURE = True

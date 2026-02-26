@@ -16,7 +16,7 @@ const Home = () => {
     />
           <div className="banner" style={{ padding: "20px", textAlign: "center" }}>
             <h5>Welcome to our Dealerships!</h5>
-            <Link to="/dealers" className="btn" style={{ backgroundColor: "aqua", margin: "10px" }}>
+            <Link to="/dealers" className="btn" style={{ backgroundColor: "#5c94d4", margin: "10px" }}>
               View Dealerships
             </Link>
           </div>

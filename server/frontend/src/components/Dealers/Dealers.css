@@ -45,15 +45,11 @@ table{
     color: black;
   }
 
-  .reviews_panel {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    column-gap: 1cm;
-    overflow-wrap: normal;
-    margin-top: 1cm;
-    align-items: flex-start;
-  }
+  .review_panel {
+    border: solid purple; /* Changed from grey */
+    margin: 10px;
+    padding: 10px;
+}
 
   .reviewer {
     margin: 10px; /* Optional margin for spacing */
@@ -82,7 +78,7 @@ table{
   width:40px;
 }
 
+/* Update the Hover effect on Review Icons */
 .review_icon:hover {
-  transform: scale(1.1);
-  border: solid lightgray;
+    border: 2px solid #080808; /* Thin black border on hover */
 }
